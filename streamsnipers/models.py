@@ -11,6 +11,9 @@ class StreamSniper(models.Model):
     class Meta:
         unique_together = ["riotIdGameName", "riotIdTagline"]
 
+    def __str__(self) -> str:
+        return self.riotIdGameName
+
 
 class Score(models.Model):
 
@@ -22,4 +25,16 @@ class Score(models.Model):
     total_games = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
+
         unique_together = ["streamsniper"]
+
+    def __str__(self) -> str:
+        return f"{self.streamsniper}: {self.win_with_quin + self.loss_against_quin - self.win_against_quin - self.loss_with_quin}"
+
+
+class Games(models.Model):
+
+    game_id = models.CharField(max_length=255)
+
+    def __str__(self) -> str:
+        return self.game_id

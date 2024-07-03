@@ -19,18 +19,14 @@
                     style="background-image: url('{% static 'images/Quin_H.png' %}');"></div>
                 <div class="z-10 flex flex-col gap-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <h2 class="text-6xl text-[#F0E6D2] mb-4">Top Carry</h2>
+                    {% for carry in carries %}
                     <div class="flex gap-4 items-center">
                         <div class="flex w-12 h-12 justify-center items-center bg-[#F0E6D2] text-[#010A13]">
-                            <h2 class="text-2xl">1</h2>
+                            <h2 class="text-2xl">{{ forloop.counter }}</h2>
                         </div>
-                        <div class="text-[#F0E6D2] text-2xl">ABOBA</div>
+                        <div class="text-[#F0E6D2] text-2xl">{{carry}}</div>
                     </div>
-                    <div class="flex gap-4 items-center">
-                        <div class="flex w-12 h-12 justify-center items-center bg-[#F0E6D2] text-[#010A13]">
-                            <h2 class="text-2xl">2</h2>
-                        </div>
-                        <div class="text-[#F0E6D2] text-2xl">bozo claun</div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="flex justify-center md:justify-start items-center h-full group relative md:pl-20">
@@ -39,18 +35,14 @@
                 </div>
                 <div class="z-10 flex flex-col gap-4 opacity-50 group-hover:opacity-100 transition-opacity">
                     <h2 class="text-6xl text-[#F0E6D2] mb-4">Top Griefer</h2>
+                    {% for griefer in griefers %}
                     <div class="flex gap-4 items-center">
                         <div class="flex w-12 h-12 justify-center items-center bg-[#F0E6D2] text-[#010A13]">
-                            <h2 class="text-2xl">1</h2>
+                            <h2 class="text-2xl">{{ forloop.counter }}</h2>
                         </div>
-                        <div class="text-[#F0E6D2] text-2xl">ABOBA</div>
+                        <div class="text-[#F0E6D2] text-2xl">{{griefer}}</div>
                     </div>
-                    <div class="flex gap-4 items-center">
-                        <div class="flex w-12 h-12 justify-center items-center bg-[#F0E6D2] text-[#010A13]">
-                            <h2 class="text-2xl">2</h2>
-                        </div>
-                        <div class="text-[#F0E6D2] text-2xl">bozo claun</div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
