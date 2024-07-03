@@ -1,0 +1,9 @@
+@font-face {
+    font-family: "BeaufortforLOL-Bold";
+    src: url("../fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+}
+
+body {
+    font-family: "BeaufortforLOL-Bold", sans-serif;
+    background-color: #010A13;
+}
