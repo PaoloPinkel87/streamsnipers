@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,12 +22,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure--&gvqvj7_mkb!l3s2ck3f_4o)@$a-iu_82nu33&kv7c522)f!o"
+SECRET_KEY = os.environ.get("SECRET-KEY")
+
+# "django-insecure--&gvqvj7_mkb!l3s2ck3f_4o)@$a-iu_82nu33&kv7c522)f!o"
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower() == "True"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -81,6 +87,11 @@ DATABASES = {
     }
 }
 
+
+database_url = "postgresql://streamsniper_db_user:UgbXeLIP42zxTG5JsN6cDXJ7jod8O8il@dpg-cq2j7irv2p9s73eu4lgg-a.ohio-postgres.render.com/streamsniper_db"
+DATABASES["default"] = dj_database_url.parse(database_url)
+
+# postgresql://streamsniper_db_user:UgbXeLIP42zxTG5JsN6cDXJ7jod8O8il@dpg-cq2j7irv2p9s73eu4lgg-a.ohio-postgres.render.com/streamsniper_db
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
