@@ -11,3 +11,6 @@ python manage.py collectstatic --no-input
 # Apply any outstanding database migrations
 python manage.py makemigrations
 python manage.py migrate
+
+celery -A core worker --loglevel=info
+celery -A core beat --loglevel=info
