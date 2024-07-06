@@ -12,5 +12,5 @@ python manage.py collectstatic --no-input
 python manage.py makemigrations
 python manage.py migrate
 
-# celery -A core worker --loglevel=info
-# celery -A core beat --loglevel=info
+celery -A core worker --loglevel=info
+celery -A core beat --loglevel=info
