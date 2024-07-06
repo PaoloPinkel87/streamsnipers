@@ -12,5 +12,7 @@ python manage.py collectstatic --no-input
 python manage.py makemigrations
 python manage.py migrate
 
-celery -A core worker --loglevel=info
-celery -A core beat --loglevel=info
+celery -A core worker --loglevel=INFO --logfile=celeryworker.log
+celery -A core beat --loglevel=INFO --logfile=celerybeat.log
+
+ps aux | grep 'celery'
